@@ -1,0 +1,11 @@
+class GFG{
+  int convertfive(int num){
+       String str=Inetger.toString(n);
+       String c=str.repalce('0','5');
+       int d=Integer.parseInt(c);
+       return d;
+       }
+     }
+       
+                
+                
