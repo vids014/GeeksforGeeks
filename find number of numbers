@@ -1,0 +1,22 @@
+class GfG
+{
+          public static int num(int a[], int n, int k)
+            {
+                 //Your code here
+                 int c=0;
+                 for(int i=0;i<n;i++){
+                    int div=a[i];
+                    while(div>=10){
+                        int mod=div%10;
+                        if(mod==k){
+                            c++;
+                        }
+                        div=div/10;
+                    }
+                    if(div==k){
+                        c++;
+                    }
+                 }
+                    return c;
+            }
+}
