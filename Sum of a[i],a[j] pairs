@@ -1,0 +1,30 @@
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		//code
+        	Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t-->0){
+		    int length=sc.nextInt();
+		    int array[]=new int[length];
+		    for(int i=0;i<length;i++){
+		        array[i]=sc.nextInt();
+		    }
+		    int sum=0;
+		    for(int j=0;j<length;j++){
+		        for(int k=j+1;k<length;k++){
+		            if((Math.abs(array[k]-array[j]))<=1)
+		            sum+=0;
+		            else
+		            sum+=array[k]-array[j];
+		        }
+		    }
+		    System.out.println(sum);
+		}
+	}
+}
