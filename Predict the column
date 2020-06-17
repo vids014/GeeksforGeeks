@@ -1,0 +1,22 @@
+class Geeks{
+    
+    static int columnWithMaxZero(int a[][],int n){
+        
+        // Your code here
+        int k=0,temp=0;
+        for(int i=0;i<n;i++){
+            int c=0;
+            for(int j=0;j<n;j++){
+                 if(a[j][i]==0){
+                     c++;
+                     if(c>temp){
+                         temp=c;
+                         k=i;
+                     }
+                 }
+            }
+        }
+        return k;
+        
+    }
+}
