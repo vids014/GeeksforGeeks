@@ -1,0 +1,23 @@
+class GfG
+{
+    public Queue<Integer> modifyQueue(Queue<Integer> q, int k)
+    {
+      //add code here.
+      Stack<Integer> st = new Stack<>();
+      Queue<Integer> st1 = new LinkedList<>();
+      for(int i=1;i<=k;i++){
+          st.push(q.poll());
+      }
+      while(!q.isEmpty()){
+          st1.offer(q.poll());
+      }
+      while(!st.isEmpty()){
+      q.offer(st.pop());
+      }
+      while(!st1.isEmpty()){
+      q.offer(st1.poll());
+      }
+      return q;
+    }
+
+}
