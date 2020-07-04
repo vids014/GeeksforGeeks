@@ -1,0 +1,24 @@
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+    static int bin(int a,int b){
+        if(a==0||b==0){
+            return 1;
+        }
+        return bin(a,b-1)+bin(a-1,b);
+    }
+	public static void main (String[] args) {
+		//code
+		Scanner sc = new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t-->0){
+		    int n=sc.nextInt();
+		    int m=sc.nextInt();
+		    System.out.println(bin(n,m));
+		}
+	}
+}
