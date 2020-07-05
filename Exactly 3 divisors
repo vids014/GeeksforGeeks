@@ -1,0 +1,54 @@
+// { Driver Code Starts
+//Initial Template for Java
+
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.*;
+class Mathematics {
+	public static void main (String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int T=sc.nextInt();
+		while(T-->0)
+		{
+		    Divisors obj=new Divisors();
+		    int N;
+		    N=sc.nextInt();
+		    
+		    System.out.println(obj.exactly3Divisors(N));
+		   
+		    
+		}
+		
+	}
+}
+// } Driver Code Ends
+
+
+//User function Template for Java
+
+
+class Divisors
+{
+    
+    public int exactly3Divisors(int N)
+    {
+        //Your code here
+        int c=0;
+        for(int i=2;i*i<=N;i++){
+            int f=0;
+            for(int j=2;j<=Math.sqrt(i);j++){
+                if(i%j==0){
+                    f=1;
+                    break;
+                }
+            }
+            if(f==0){
+                c++;
+            }
+        }
+            return c;
+        
+    }
+}
