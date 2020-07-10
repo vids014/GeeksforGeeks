@@ -2,66 +2,66 @@
 import java.io.*;
 import java.util.*;
 
-class Array {
+class ArrayWave {
     
 	public static void main (String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int t = Integer.parseInt(br.readLine().trim()); //Inputting the testcases
 		
-		while(t-->0){
-		    int n = Integer.parseInt(br.readLine().trim());
-		    int arr[] = new int[n];
+		while(t-->0)
+		{
+		    int n = Integer.parseInt(br.readLine().trim());// taking size of array
+		    int arr[] = new int[n]; // declaring array of size n
 		    String inputLine[] = br.readLine().trim().split(" ");
 		    for(int i=0; i<n; i++){
-		        arr[i] = Integer.parseInt(inputLine[i]);
+		        arr[i]=Integer.parseInt(inputLine[i]); // input elements of array
 		    }
 		    
-		    Leader obj = new Leader();
+		    Wave obj = new Wave();
 		    
-		    StringBuffer str = new StringBuffer();
-		    ArrayList<Integer> res = new ArrayList<Integer>();
-		    res = obj.leaders(arr, n);
 		    
-		    for(int i=0; i<res.size(); i++){
-		        str.append(res.get(i)+" ");
-		    }
-		    System.out.println(str);
+		    obj.convertToWave(arr, n);
+		    
+		    StringBuffer sb = new StringBuffer(); 
+            for (int i = 0; i < n; i++) 
+                sb.append(arr[i] + " "); 
+                
+		    System.out.println(sb); // print array
 		}
-		
 	}
 }
-// } Driver Code Ends
 
 
-class Leader{
+ // } Driver Code Ends
+
+
+class Wave{
+
     
-    // This functions find the leaders in the array and returns
-    // arraylist containing the leaders
+    // Function to convert the given array to wave like array
     // arr: input array
-    // n: size of array
-    static ArrayList<Integer> leaders(int arr[], int n){
+    // n: size of the array
+    public static void swap(int arr[], int a, int b){
+        int temp=arr[a];
+        arr[a]=arr[b];
+        arr[b]=temp;
+    }
+    public static void convertToWave(int arr[], int n){
         
         // Your code here
-        ArrayList<Integer> arrLi=new ArrayList<Integer>();
-        int curr_max=0;
-        for(int i=n-1;i>=0;i--){
-            if(arr[i]>=curr_max){
-                curr_max=arr[i];
-                arrLi.add(arr[i]);
+        for(int i=0;i<n;i+=2){
+            if(i>0 && arr[i]<arr[i-1]){
+                swap(arr,i-1,i);
+            }
+            if(i<n-1 && arr[i]<arr[i+1]){
+                swap(arr,i,i+1);
             }
         }
-        Collections.reverse(arrLi);
-        return arrLi;
     }
 }
+        
             
 
-        
-        
-        
-        /******************
-     * You just need to complete this
-     * function and return the vector
-     * containing the leaders.
-     * ***************/
-    
+
+// { Driver Code Starts.
+  // } Driver Code Ends
