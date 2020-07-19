@@ -1,0 +1,63 @@
+// { Driver Code Starts
+//Initial Template for Java
+
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.*;
+class Recursion {
+	public static void main (String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int T=sc.nextInt();
+		sc.nextLine();
+		while(T-->0)
+		{
+		    
+		    Permutation obj=new Permutation();
+		    
+		    String S=sc.nextLine();
+		    
+		    obj.permutation(S);
+		    
+		    System.out.println();
+		}
+		
+	}
+}
+// } Driver Code Ends
+
+
+//User function Template for Java
+
+class Permutation
+{
+    ArrayList<String> al=new ArrayList<>();
+    public void permutation(String s)
+    {
+        permute(s,0,s.length()-1);
+        Collections.sort(al);
+        for(String x:al)
+        System.out.print(x+" ");
+    }
+    public void permute(String s,int l,int r)
+    {
+        if(l==r)
+        al.add(s);
+        else{
+            for(int i=l;i<=r;i++){
+                s=swap(s,l,i);
+                permute(s,l+1,r);
+                s=swap(s,l,i);
+            }
+        }
+    }
+    public String swap(String s,int i,int j){
+        char[] arr=s.toCharArray();
+        char temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+        return String.valueOf(arr);
+    }
+	   
+}
