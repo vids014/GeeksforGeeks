@@ -1,0 +1,65 @@
+// { Driver Code Starts
+//Initial Template for Java
+
+
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+
+class Driver_class
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        
+        while(t-- > 0)
+        {
+            String st = sc.next();
+            ArrayList<String> ans = new LexSort().powerSet(st);
+            Collections.sort(ans);
+            for(String s: ans)
+                System.out.print(s + " ");
+            System.out.println();    
+        }
+    }
+}
+
+
+ // } Driver Code Ends
+
+
+//User function Template for Java
+
+
+class LexSort
+{
+    // complete the function
+    static ArrayList<String> powerSet(String s)
+    {
+        // add your code here
+        ArrayList<String> arr=new ArrayList<String>();
+        int index=0;
+        String curr="";
+        Sub(arr,s,curr,index);
+        return arr;
+    }
+    
+    public static void Sub(ArrayList<String> arr,String s,String curr,int index){
+        if(index==s.length()){
+            arr.add(curr);
+            return;
+        }
+        
+            Sub(arr,s,curr,index+1);
+            Sub(arr,s,curr+s.substring(index,index+1),index+1);
+        }
+}
+            
+
+
+ 
+
+// { Driver Code Starts.
+
+                                // } Driver Code Ends
