@@ -1,0 +1,66 @@
+// { Driver Code Starts
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+class Driverclass
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        
+        while(t-- > 0)
+        {
+            int n1 = sc.nextInt();
+            int m1 = sc.nextInt();
+            
+            int arr1[][] = new int[n1][m1];
+            
+            for(int i = 0; i < n1; i++)
+            {
+                for(int j = 0; j < m1; j++)
+                 arr1[i][j] = sc.nextInt();
+            }
+           
+            new Traverse().spirallyTraverse(n1, m1, arr1);
+            
+            System.out.println();
+        }
+    }
+}
+// } Driver Code Ends
+
+
+class Traverse
+{
+    //Complete this function
+    static void spirallyTraverse(int m, int n, int arr1[][])
+    {
+       //Your code here
+       int tp=0,b=m-1,r=n-1,l=0,dir=0;
+       while(tp<=b && l<=r){
+           if(dir==0){
+               for(int i=l;i<=r;i++)
+                   System.out.print(arr1[tp][i]+" ");
+               tp++;
+           }
+           else if(dir==1){
+               for(int i=tp;i<=b;i++)
+                   System.out.print(arr1[i][r]+" ");
+               r--;
+           }
+           else if(dir==2){
+               for(int i=r;i>=l;i--)
+                   System.out.print(arr1[b][i]+" ");
+               b--;
+           }
+           else if(dir==3){
+               for(int i=b;i>=tp;i--)
+                   System.out.print(arr1[i][l]+" ");
+               l++;
+           }
+           dir=(dir+1)%4;
+       }
+    }
+}
