@@ -1,0 +1,70 @@
+// { Driver Code Starts
+//Initial Template for Java
+
+
+import java.io.*;
+import java.util.*; 
+
+class GFG{
+    public static void main(String args[]) throws IOException { 
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while(t > 0){
+        	int n = sc.nextInt();
+        	int[] array = new int[n];
+        	for(int i=0; i<n; i++)
+        	{
+        		array[i] = sc.nextInt();
+        	}
+        	int target = sc.nextInt();
+
+            Solution ob = new Solution();
+			System.out.println(ob.Search(array,target));
+            t--;
+        }
+    } 
+} // } Driver Code Ends
+
+
+//User function Template for Java
+
+class Solution 
+{ 
+    
+	    static int bs(int a[],int l ,int h,int target){
+	
+	        int pivot=l+(h-l)/2;
+	         
+	        if(l>h){
+	            return -1;
+	        }
+	         
+	            if(a[pivot]==target){
+	                return pivot;
+	            }
+	            
+	            if(a[l]<=a[pivot]){
+	                if(target>=a[l] && target<=a[pivot])
+	                    return bs(a,l,pivot-1,target);
+	                
+	                
+	                
+	                return bs(a,pivot+1,h,target);
+	                }
+	                 
+	                  if(target>=a[pivot] && target<=a[h])
+	                        return bs(a,pivot+1,h,target);
+	                    
+	                  return bs(a,l,pivot-1,target);
+	                    
+	                    
+	                }
+	static int Search(int array[], int target)
+	{
+	    // code here
+	    int n=array.length;
+	    return bs(array,0,n-1,target);
+	}
+}
+
