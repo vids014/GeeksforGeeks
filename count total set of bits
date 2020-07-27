@@ -1,0 +1,53 @@
+// { Driver Code Starts
+//Initial Template for Java
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.BigInteger;
+
+
+ // } Driver Code Ends
+
+
+//User function Template for Java
+
+class CountBits{
+    
+    // Function to count number of set bits
+    public static int countSetBits(int n){
+    
+        // Your code here
+        n=n+1;
+        int power=2;
+        int ans=0;
+        int bitcount=n/2;
+        while(power<=n){
+            int no_pairs=n/power;
+            bitcount+=(no_pairs/2)*power;
+            bitcount+=((no_pairs & 1)==1)?(n%power):0;
+            
+            power<<=1;
+        }
+        return bitcount;
+    }
+}
+
+// { Driver Code Starts.
+
+// Driver code
+class BitWise {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		int x, n;
+		while(t-->0) {
+	        n = sc.nextInt();
+
+		    CountBits obj = new CountBits();
+
+		    System.out.println(obj.countSetBits(n));
+		}
+	}
+}
+  // } Driver Code Ends
