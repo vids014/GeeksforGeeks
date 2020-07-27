@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class MyClass {
+    public static void main(String args[]) {
+      Scanner sc = new Scanner(System.in);
+       String str=sc.nextLine();
+       char [] arr=str.toCharArray();
+       int n=str.length();
+      int count=(1<<n);
+      for(int i=0;i<count;i++){
+          for(int j=0;j<n;j++){
+              if((i&(1<<j))>0){
+                  System.out.print(arr[j]);
+              }
+          }
+          System.out.println();
+      }
+    }
+}
+        
+         
